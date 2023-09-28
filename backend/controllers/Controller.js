@@ -20,7 +20,18 @@ const setGoals = asyncHandler(async (req, res) => {
 });
 
 const updateGoals = asyncHandler(async (req, res) => {
-	res.status(200).json({ message: `Update goal ${req.params.id}` });
+	const goal = await Goal.findById(req.params.id);
+
+	if (!goal) {
+		res.status(400);
+		throw new Error("Goal not found!");
+	}
+
+	const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, {
+		new: true,
+	});
+
+	res.status(200).json(updatedGoal);
 });
 
 const deleteGoals = asyncHandler(async (req, res) => {
