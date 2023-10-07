@@ -75,6 +75,13 @@ const getMe = (req, res) => {
 	res.json({ message: "User Data Display" });
 };
 
+// Generate JWT
+const generateToken = (id) => {
+	return jwt.sign({ id }, process.env.JWT_SECRET, {
+		expiresIn: "30d",
+	});
+};
+
 module.exports = {
 	registerUser,
 	loginUser,
