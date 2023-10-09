@@ -4,7 +4,7 @@ const Goal = require("../models/goalModel");
 
 // Get request (READ)
 const getGoals = asyncHandler(async (req, res) => {
-	const goals = await Goal.find();
+	const goals = await Goal.find({ user: req.user.id });
 	res.status(200).json(goals);
 });
 
@@ -39,14 +39,14 @@ const updateGoals = asyncHandler(async (req, res) => {
 
 // Delete request (DELETE)
 const deleteGoals = asyncHandler(async (req, res) => {
-    const goal = await Goal.findById(req.params.id);
+	const goal = await Goal.findById(req.params.id);
 
-    if (!goal) {
+	if (!goal) {
 		res.status(400);
 		throw new Error("Goal not found!");
 	}
 
-    await goal.deleteOne()
+	await goal.deleteOne();
 	res.status(200).json({ id: req.params.id });
 });
 
