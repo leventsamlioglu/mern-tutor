@@ -9,18 +9,14 @@ function Header() {
 			</div>
 			<ul>
 				<li>
-					<>
-						<li>
-							<Link to="/login">
-								<FaSignInAlt /> Login
-							</Link>
-						</li>
-						<li>
-							<Link to="/register">
-								<FaUser /> Register
-							</Link>
-						</li>
-					</>
+					<Link to="/login">
+						<FaSignInAlt /> Login
+					</Link>
+				</li>
+				<li>
+					<Link to="/register">
+						<FaUser /> Register
+					</Link>
 				</li>
 			</ul>
 		</header>
