@@ -37,6 +37,7 @@ function Register() {
 							className="form-control"
 							id="name"
 							name="name"
+							autoComplete
 							value={name}
 							placeholder="Enter your name"
 							onChange={onChange}
@@ -48,6 +49,7 @@ function Register() {
 							className="form-control"
 							id="email"
 							name="email"
+							autoComplete
 							value={email}
 							placeholder="Enter your email"
 							onChange={onChange}

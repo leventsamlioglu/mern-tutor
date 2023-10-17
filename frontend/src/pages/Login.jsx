@@ -35,6 +35,7 @@ function Login() {
 							className="form-control"
 							id="email"
 							name="email"
+							autoComplete
 							value={email}
 							placeholder="Enter your email"
 							onChange={onChange}
